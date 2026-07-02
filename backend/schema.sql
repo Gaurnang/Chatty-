@@ -7,7 +7,7 @@ create table users (
     bio text,
     created_at timestamp default current_timestamp,
     last_seen timestamp default current_timestamp
-)
+);
 
 create table conversations(
     id serial primary key, 
@@ -16,7 +16,7 @@ create table conversations(
     created_by integer not null,
     created_at timestamp default current_timestamp,
     foreign key(created_by) references users(id)
-)
+);
 
 create table participants(
     id serial primary key, 
@@ -27,7 +27,7 @@ create table participants(
     foreign key(conversation_id) references conversations(id) on delete cascade,
     foreign key(user_id) references users(id) on delete cascade,
     unique(conversation_id, user_id)
-)
+);
 
 create table messages(
     id serial primary key, 
@@ -37,4 +37,4 @@ create table messages(
     created_at timestamp default current_timestamp,
     foreign key(conversation_id) references conversations(id) on delete cascade,
     foreign key(sender_id) references users(id) on delete cascade
-)
+);
