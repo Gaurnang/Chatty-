@@ -13,11 +13,11 @@ const SALT_ROUNDS = 10;
 
 
 export const registerUser = async ({
-  username,
+  displayName,
   email,
   password,
 }) => {
-  if (!username || !email || !password) {
+  if (!displayName || !email || !password) {
     throw new Error("All fields are required.");
   }
 
@@ -27,16 +27,10 @@ export const registerUser = async ({
     throw new Error("Email already exists.");
   }
 
-  const existingUsername = await findUserByUsername(username);
-
-  if (existingUsername) {
-    throw new Error("Username already exists.");
-  }
-
   const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
   const user = await createUser({
-    username,
+    displayName,
     email,
     password: hashedPassword,
   });

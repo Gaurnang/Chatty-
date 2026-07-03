@@ -8,13 +8,10 @@ import authenticate from "../middleware/auth.middleware.js";
 
 const router = Router();
 
-// Register
 router.post("/register", register);
 
-// Login
 router.post("/login", login);
 
-// Get logged-in user
 router.get("/me", authenticate, getCurrentUser);
 
 export default router;

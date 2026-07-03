@@ -33,20 +33,20 @@ export const findUserByUsername = async (username) => {
 /**
  * Create a new user
  */
-export const createUser = async ({ username, email, password }) => {
+export const createUser = async ({ displayName, email, password }) => {
   const query = `
-    INSERT INTO users (username, email, password)
+    INSERT INTO users (display_name, email, password)
     VALUES ($1, $2, $3)
     RETURNING
       id,
-      username,
+      display_name,
       email,
       bio,
       created_at,
       last_seen
   `;
 
-  const values = [username, email, password];
+  const values = [displayName, email, password];
 
   const { rows } = await pool.query(query, values);
 
