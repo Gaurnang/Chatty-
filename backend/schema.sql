@@ -25,13 +25,9 @@ CREATE TABLE contacts (
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (owner_id)
-        REFERENCES users(id)
-        ON DELETE CASCADE,
+    FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE,
 
-    FOREIGN KEY (contact_id)
-        REFERENCES users(id)
-        ON DELETE CASCADE,
+    FOREIGN KEY (contact_id) REFERENCES users(id) ON DELETE CASCADE,
 
     UNIQUE(owner_id, contact_id),
 
@@ -52,9 +48,7 @@ CREATE TABLE conversations (
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (created_by)
-        REFERENCES users(id)
-        ON DELETE CASCADE
+    FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE participants (
@@ -66,18 +60,13 @@ CREATE TABLE participants (
 
     role VARCHAR(20)
         NOT NULL
-        CHECK (role IN ('admin', 'member'))
-        DEFAULT 'member',
+        CHECK (role IN ('admin', 'member')) DEFAULT 'member',
 
     joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (conversation_id)
-        REFERENCES conversations(id)
-        ON DELETE CASCADE,
+    FOREIGN KEY (conversation_id) REFERENCES conversations(id) ON DELETE CASCADE,
 
-    FOREIGN KEY (user_id)
-        REFERENCES users(id)
-        ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
 
     UNIQUE(conversation_id, user_id)
 );

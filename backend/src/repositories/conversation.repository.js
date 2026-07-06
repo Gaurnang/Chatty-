@@ -51,9 +51,6 @@ export const createConversation = async (createdBy) => {
   return rows[0];
 };
 
-/**
- * Add participant
- */
 export const addParticipant = async (
   conversationId,
   userId,
@@ -131,9 +128,7 @@ export const findConversationFeed = async (
   return rows;
 };
 
-/**
- * Get conversation details
- */
+
 export const findConversationById = async (
   conversationId,
   currentUserId
@@ -270,9 +265,6 @@ export const updateGroupName = async (
   return rows[0];
 };
 
-/**
- * Check if user is already a participant
- */
 export const isParticipant = async (
   conversationId,
   userId
@@ -333,9 +325,7 @@ export const getGroupParticipants = async (
   return rows;
 };
 
-/**
- * Promote member to admin
- */
+
 export const promoteAdmin = async (
   conversationId,
   userId

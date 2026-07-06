@@ -61,12 +61,6 @@ export const createPrivateConversationService = async (
     "member"
   );
 
-  await addParticipant(
-    conversation.id,
-    userId,
-    "member"
-  );
-
   return conversation;
 };
 
@@ -158,9 +152,6 @@ export const getConversationByIdService = async (
   return conversation;
 };
 
-/**
- * Rename Group
- */
 export const renameGroupService = async (
   currentUserId,
   conversationId,
@@ -207,9 +198,7 @@ export const renameGroupService = async (
   );
 };
 
-/**
- * Add Members
- */
+
 export const addMembersService = async (
   currentUserId,
   conversationId,
@@ -256,9 +245,6 @@ export const addMembersService = async (
   };
 };
 
-/**
- * Remove Member
- */
 export const removeMemberService = async (
   currentUserId,
   conversationId,
@@ -300,9 +286,6 @@ export const removeMemberService = async (
   );
 };
 
-/**
- * Leave Group
- */
 export const leaveGroupService = async (
   currentUserId,
   conversationId
