@@ -32,10 +32,7 @@ export const sendMessage = async (req, res) => {
   }
 };
 
-/**
- * @desc Get all messages of a conversation
- * @route GET /api/messages/:conversationId
- */
+
 export const getMessages = async (req, res) => {
   try {
     const { conversationId } = req.params;
@@ -85,10 +82,6 @@ export const updateMessage = async (req, res) => {
   }
 };
 
-/**
- * @desc Delete a message
- * @route DELETE /api/messages/:messageId
- */
 export const deleteMessage = async (req, res) => {
   try {
     const { messageId } = req.params;

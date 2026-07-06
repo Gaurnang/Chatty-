@@ -7,9 +7,7 @@ import {
   isConversationParticipant,
 } from "../repositories/message.repository.js";
 
-/**
- * Send Message
- */
+
 export const sendMessageService = async (
   senderId,
   conversationId,
