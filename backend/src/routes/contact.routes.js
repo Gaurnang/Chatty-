@@ -11,9 +11,7 @@ import {
 
 const router = Router();
 
-
 router.use(authenticate);
-
 
 router.post("/", saveContact);
 

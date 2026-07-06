@@ -60,7 +60,7 @@ export const findUserById = async (id) => {
   const query = `
     SELECT
       id,
-      username,
+      display_name,
       email,
       bio,
       created_at,

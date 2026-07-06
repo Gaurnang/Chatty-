@@ -82,27 +82,3 @@ CREATE TABLE participants (
     UNIQUE(conversation_id, user_id)
 );
 
-CREATE TABLE participants (
-    id SERIAL PRIMARY KEY,
-
-    conversation_id INTEGER NOT NULL,
-
-    user_id INTEGER NOT NULL,
-
-    role VARCHAR(20)
-        NOT NULL
-        CHECK (role IN ('admin', 'member'))
-        DEFAULT 'member',
-
-    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (conversation_id)
-        REFERENCES conversations(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (user_id)
-        REFERENCES users(id)
-        ON DELETE CASCADE,
-
-    UNIQUE(conversation_id, user_id)
-);
